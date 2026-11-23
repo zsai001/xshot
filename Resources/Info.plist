@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleDisplayName</key>
+    <string>XShot</string>
+    <key>CFBundleExecutable</key>
+    <string>XShot</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundleIdentifier</key>
+    <string>top.xtags.xshot</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>XShot</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.productivity</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>15.0</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2026 XShot Contributors. MIT License.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>XShot needs camera access to record a Picture-in-Picture webcam overlay alongside your screen recordings.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>XShot needs microphone access to record voiceover narration during screen recordings.</string>
+    <key>NSScreenCaptureUsageDescription</key>
+    <string>XShot needs screen recording access to capture high-resolution Retina screenshots and smooth 60fps videos.</string>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSSupportsAutomaticGraphicsSwitching</key>
+    <true/>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>top.xtags.xshot.auth</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>xshot</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>

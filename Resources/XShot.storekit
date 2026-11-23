@@ -1,0 +1,98 @@
+{
+  "identifier" : "A1B2C3D4-E5F6-47A8-B9C0-1234567890AB",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "36.00",
+      "familyShareable" : true,
+      "internalID" : "XSHOT_PRO_LIFETIME_01",
+      "localizations" : [
+        {
+          "description" : "One-time purchase for permanent Lifetime Updates, all XShot Pro features, and priority bug fixes.",
+          "displayName" : "XShot Pro — Lifetime Updates",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "一次性买断永久更新，解锁 XShot Pro 全部高级功能并享优先 Bug 反馈与修复支持。",
+          "displayName" : "XShot Pro — 永久更新",
+          "locale" : "zh_Hans"
+        }
+      ],
+      "productID" : "top.xtags.xshot.pro.lifetime",
+      "referenceName" : "XShot Pro Lifetime Updates",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "XSHOT_MAC_APP",
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "XSHOT_PRO_GROUP_01",
+      "localizations" : [
+        {
+          "customAppName" : "XShot",
+          "description" : "Unlock all XShot Pro features, priority bug reports & fixes, and timely updates. 6 paid months auto-upgrade to Lifetime.",
+          "displayName" : "XShot Pro",
+          "locale" : "en_US"
+        },
+        {
+          "customAppName" : "XShot",
+          "description" : "解锁 XShot Pro 全部高级功能、优先 Bug 反馈修复与及时更新；订阅满 6 个月自动升级为永久更新。",
+          "displayName" : "XShot Pro",
+          "locale" : "zh_Hans"
+        }
+      ],
+      "name" : "XShot Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "6.00",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "XSHOT_PRO_MONTHLY_01",
+          "introductoryOffer" : {
+            "internalID" : "XSHOT_PRO_TRIAL_7D",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Monthly updates with Free Trial, priority bug fixes, and automatic upgrade to Lifetime Updates after 6 paid months.",
+              "displayName" : "XShot Pro — Monthly Updates",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "含免费试用，支持优先 Bug 反馈修复与及时更新，累计订阅满 6 个月自动升级为永久更新。",
+              "displayName" : "XShot Pro — 月度订阅更新",
+              "locale" : "zh_Hans"
+            }
+          ],
+          "productID" : "top.xtags.xshot.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "XShot Pro Monthly Updates",
+          "subscriptionGroupID" : "XSHOT_PRO_GROUP_01",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

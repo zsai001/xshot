@@ -1,0 +1,48 @@
+name: Auto-Close Pull Requests
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  close-pr:
+    name: Close external pull requests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment, close, and lock PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (!pr) return;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: [
+                "Thanks for your interest in **XShot**!",
+                "",
+                "This repository does not accept Pull Requests at this time, so this PR has been automatically closed.",
+                "If you found a bug or have a feature suggestion, please open an **Issue** instead.",
+                "",
+                "感谢关注 **XShot**！本仓库暂不接受 Pull Request，此 PR 已自动关闭。如需反馈 Bug 或提出建议，欢迎提交 **Issue**。"
+              ].join("\n")
+            });
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              state: "closed"
+            });
+
+            await github.rest.issues.lock({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number
+            });
