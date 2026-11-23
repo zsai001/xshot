@@ -1,0 +1,13 @@
+# Swift Package Manager & Build outputs
+.build/
+.swiftpm/
+build/
+dist/
+*.xcodeproj
+*.xcworkspace
+
+# OS & Editor
+.DS_Store
+*.log
+.vscode/
+.idea/

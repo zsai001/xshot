@@ -1,0 +1,52 @@
+name: Release XShot macOS Binary
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build & Publish macOS Release Binary
+    runs-on: macos-15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Swift test suite
+        run: swift test
+
+      - name: Package pre-built XShot binary (.zip + .sha256)
+        run: ./scripts/package-release.sh
+
+      - name: Publish GitHub Release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            VER="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' Resources/Info.plist)"
+            TAG="v${VER}"
+          fi
+          SHA_TEXT="$(cat dist/*.sha256)"
+          NOTES="## XShot ${TAG} (macOS 15+ Apple Silicon)
+
+          - **Pre-built binary**: Download the \`.zip\` below, unzip, and move \`XShot.app\` to \`/Applications\`.
+          - **Seamless auto-updates**: Sign in with your XTags account inside XShot to automatically download, verify, replace \`XShot.app\` in-place, and relaunch — zero DMG or manual dragging.
+
+          ### SHA-256 Checksum
+          \`\`\`text
+          ${SHA_TEXT}
+          \`\`\`"
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/XShot-*.zip dist/XShot-*.zip.sha256 --clobber
+          else
+            gh release create "$TAG" dist/XShot-*.zip dist/XShot-*.zip.sha256 \
+              --title "XShot ${TAG}" \
+              --notes "$NOTES"
+          fi
